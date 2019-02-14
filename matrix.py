@@ -39,7 +39,12 @@ def ident( matrix ):
 #m1 * m2 -> m2
 # take first row and multiply corresponding values with next column
 def matrix_mult( m1, m2 ):
-    pass
+
+    for elem1 in m1: #first row of the first matrix or Counter of the current row examined, thus current column
+        for i in range(len(elem1)):#cycle through the row getting the necessary index
+            for elem2 in m2: #take relevant column
+                elem2[i]= elem2[i]*elem1[i]
+
 
 
 
@@ -55,6 +60,7 @@ def new_matrix(rows = 4, cols = 4):
 '''
 test section
 '''
+'''
 test1= [[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
 test2= new_matrix()
 
@@ -67,3 +73,14 @@ print_matrix(test1)
 
 ident(test2)
 print_matrix(test2)
+'''
+A = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+B = [[11,12,13,14],[15,16,17,18],[19,20,21,22],[23,24,25,26]]
+matrix_mult(A,B)
+print(A)
+print(B)
+matrix_mult(B,A)
+print(A)
+print(B)
+matrix_mult(ident(A),A)
+print(A)
