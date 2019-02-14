@@ -37,6 +37,7 @@ def ident( matrix ):
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
+# take first row and multiply corresponding values with next column
 def matrix_mult( m1, m2 ):
     pass
 
