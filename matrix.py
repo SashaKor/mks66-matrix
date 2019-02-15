@@ -58,7 +58,7 @@ def matrix_mult( m1, m2 ):
 
     #reassigns matrix m2
     # directly manipulates second matrix
-    m2.clear()
+    m2.clear
     for elem in m2_result:
         #print(str(elem))
         m2.append(elem)
