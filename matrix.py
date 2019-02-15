@@ -29,7 +29,7 @@ def ident( matrix ):
     for elem in matrix:
         #looping through the square matrix
         for i in range(len(elem)):
-            if (i== cnt):
+            if (i == cnt):
                 elem[i]= 1
             else:
                 elem[i]= 0
@@ -39,13 +39,29 @@ def ident( matrix ):
 #m1 * m2 -> m2
 # take first row and multiply corresponding values with next column
 def matrix_mult( m1, m2 ):
+    #creates the matrix
+    m2_result=[]
+    for row in m1: #take each row
+        new_row=[]
+        for i in range (len(m2[0])): #track columns in second matrix
+            cnt=0
+            sum=0
+            for elem in row: #multiplies row elem with corresponding col elem
+                mult_val= elem*(m2[cnt][i])
+                sum+= mult_val #calculating all the sums
+                #print("sum: " +str(sum))
+                #print("multval: " +str(mult_val))
+                #print("colval: " +str(m2[cnt][i]))
+                cnt+=1
+            new_row.append(sum)
+        m2_result.append(new_row)
 
-    for elem1 in m1: #first row of the first matrix or Counter of the current row examined, thus current column
-        for i in range(len(elem1)):#cycle through the row getting the necessary index
-            for elem2 in m2: #take relevant column
-                elem2[i]= elem2[i]*elem1[i]
-
-
+    #reassigns matrix m2
+    # directly manipulates second matrix
+    m2.clear()
+    for elem in m2_result:
+        #print(str(elem))
+        m2.append(elem)
 
 
 # function setting up matrix
@@ -76,11 +92,18 @@ print_matrix(test2)
 '''
 A = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
 B = [[11,12,13,14],[15,16,17,18],[19,20,21,22],[23,24,25,26]]
+
 matrix_mult(A,B)
-print(A)
-print(B)
-matrix_mult(B,A)
-print(A)
-print(B)
-matrix_mult(ident(A),A)
-print(A)
+print_matrix(A)
+print_matrix(B)
+matrix_mult(B,A) #note B has been altered
+print_matrix(A)
+print_matrix(B)
+
+test1= [[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
+Z = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+C = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+ident(Z)
+matrix_mult(Z,C)
+print(C)
+print(Z)
