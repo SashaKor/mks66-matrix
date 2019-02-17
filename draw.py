@@ -5,19 +5,10 @@ from matrix import *
 def draw_lines( matrix, screen, color ):
     #for loop skipping by 2 taking two points and printing edges
     for i in range(0,len(matrix[0]),2): #looping through the elems by twos
-        x0=0
-        y0=0
-        x1=0
-        y1=0
-        for x in range(2): #you have necessary index, now find x's and y's, only finding those
-            if (x==0): #its to the side not down the column
-                x0= matrix[x][i]
-                x1= matrix[x][i+1]
-            elif (x==1):
-                y0= matrix[x][i]
-                y2= matrix[x][i+1]
-            else:
-                print("messed up!")
+        x0=matrix[0][i]
+        y0=matrix[1][i]
+        x1=matrix[0][i+1]
+        y1=matrix[1][i+1]
         draw_line(x0,y0,x1,y1,screen,color)
 
 def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
