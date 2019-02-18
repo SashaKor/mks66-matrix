@@ -33,7 +33,7 @@ for i in range(70):
     color[1]+=20
 
 '''
-test section 
+test section
 '''
 
 A = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
@@ -63,4 +63,6 @@ print(C)
 print("printing Z (z*c where z is identity)")
 print(Z)
 
+
 display(screen)
+save_extension(screen, 'img.png')
